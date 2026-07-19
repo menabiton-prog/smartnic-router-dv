@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="960" height="460" fill="#ffffff"/>
+  <text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#0f172a">4x4 Packet Router — datapath and verification</text>
+
+  <!-- inputs -->
+  <text x="70" y="70" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">AXI4-Stream in</text>
+  <g font-size="10" fill="#475569">
+    <rect x="24" y="82"  width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="70" y="101" text-anchor="middle">port 0</text>
+    <rect x="24" y="120" width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="70" y="139" text-anchor="middle">port 1</text>
+    <rect x="24" y="158" width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="70" y="177" text-anchor="middle">port 2</text>
+    <rect x="24" y="196" width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="70" y="215" text-anchor="middle">port 3</text>
+  </g>
+
+  <!-- input fifos -->
+  <g>
+    <rect x="150" y="82"  width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <rect x="150" y="120" width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <rect x="150" y="158" width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <rect x="150" y="196" width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <text x="193" y="70" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">input FIFOs</text>
+    <text x="193" y="101" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+    <text x="193" y="139" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+    <text x="193" y="177" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+    <text x="193" y="215" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+  </g>
+
+  <!-- routing + arbitration -->
+  <rect x="286" y="78" width="180" height="156" rx="10" fill="#f5f3ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="376" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#4f46e5">header decode</text>
+  <text x="376" y="118" text-anchor="middle" font-size="10" fill="#475569">read dest from header</text>
+  <text x="376" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="#4f46e5">per-output</text>
+  <text x="376" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#4f46e5">round-robin arbiter</text>
+  <text x="376" y="192" text-anchor="middle" font-size="10" fill="#475569">packet-contiguous grant</text>
+  <text x="376" y="210" text-anchor="middle" font-size="10" fill="#475569">(held until TLAST)</text>
+
+  <!-- output fifos -->
+  <g>
+    <rect x="516" y="82"  width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <rect x="516" y="120" width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <rect x="516" y="158" width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <rect x="516" y="196" width="86" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe"/>
+    <text x="559" y="70" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">output FIFOs</text>
+    <text x="559" y="101" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+    <text x="559" y="139" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+    <text x="559" y="177" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+    <text x="559" y="215" text-anchor="middle" font-size="9" fill="#475569">FIFO</text>
+  </g>
+
+  <!-- outputs -->
+  <text x="700" y="70" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">AXI4-Stream out</text>
+  <g font-size="10" fill="#475569">
+    <rect x="654" y="82"  width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="700" y="101" text-anchor="middle">port 0</text>
+    <rect x="654" y="120" width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="700" y="139" text-anchor="middle">port 1</text>
+    <rect x="654" y="158" width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="700" y="177" text-anchor="middle">port 2</text>
+    <rect x="654" y="196" width="92" height="30" rx="6" fill="#eef2ff" stroke="#6366f1"/><text x="700" y="215" text-anchor="middle">port 3</text>
+  </g>
+
+  <!-- flow arrows -->
+  <g stroke="#334155" stroke-width="1.6" marker-end="url(#a)">
+    <line x1="116" y1="97"  x2="150" y2="97"/>
+    <line x1="236" y1="150" x2="286" y2="150"/>
+    <line x1="466" y1="150" x2="516" y2="150"/>
+    <line x1="602" y1="97"  x2="654" y2="97"/>
+  </g>
+
+  <!-- verification lane -->
+  <rect x="24" y="266" width="912" height="168" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="44" y="292" font-size="13" font-weight="700" fill="#0f172a">Verification</text>
+
+  <rect x="60" y="306" width="220" height="104" rx="8" fill="#ffffff" stroke="#4f46e5"/>
+  <text x="170" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#4f46e5">UVM environment</text>
+  <text x="170" y="352" text-anchor="middle" font-size="10" fill="#475569">constrained-random driver</text>
+  <text x="170" y="368" text-anchor="middle" font-size="10" fill="#475569">in/out monitors</text>
+  <text x="170" y="384" text-anchor="middle" font-size="10" fill="#475569">scoreboard + coverage + SVA</text>
+
+  <rect x="300" y="306" width="220" height="104" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="410" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">cocotb testbench</text>
+  <text x="410" y="352" text-anchor="middle" font-size="10" fill="#475569">random traffic on 4 ports</text>
+  <text x="410" y="368" text-anchor="middle" font-size="10" fill="#475569">scoreboard checks routing</text>
+  <text x="410" y="384" text-anchor="middle" font-size="10" fill="#475569">runs on free simulators</text>
+
+  <rect x="540" y="306" width="180" height="104" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="630" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">golden model</text>
+  <text x="630" y="352" text-anchor="middle" font-size="10" fill="#475569">Python reference</text>
+  <text x="630" y="368" text-anchor="middle" font-size="10" fill="#475569">router_model.py</text>
+  <text x="630" y="386" text-anchor="middle" font-size="10" fill="#16a34a">multi-seed regression</text>
+
+  <rect x="740" y="306" width="176" height="104" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="828" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">automation</text>
+  <text x="828" y="352" text-anchor="middle" font-size="10" fill="#475569">Python runner</text>
+  <text x="828" y="368" text-anchor="middle" font-size="10" fill="#475569">many seeds, log parse</text>
+  <text x="828" y="384" text-anchor="middle" font-size="10" fill="#475569">pass/fail + coverage</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#334155"/></marker>
+  </defs>
+</svg>
